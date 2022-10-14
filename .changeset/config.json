@@ -1,11 +1,16 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.2.0/schema.json",
-  "changelog": "@changesets/cli/changelog",
-  "commit": false,
-  "fixed": [],
-  "linked": [["@liou666/*"]],
   "access": "public",
   "baseBranch": "main",
-  "updateInternalDependencies": "patch",
-  "ignore": []
+  "linked": [["@liou666/*"]],
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "https://github.com/liou666/eslint-config-preset"
+    }
+  ],
+  "commit": false,
+  "fixed": [],
+  "ignore": [],
+  "updateInternalDependencies": "patch"
 }
