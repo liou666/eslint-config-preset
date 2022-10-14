@@ -1,0 +1,17 @@
+{
+  "name": "@liou666/eslint-config-ts",
+  "version": "1.0.0",
+  "description": "",
+  "author": "liou",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@liou666/eslint-config-base": "workspace:*",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0"
+  }
+}
