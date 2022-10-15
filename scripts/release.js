@@ -1,6 +1,9 @@
 import { execSync } from 'child_process'
-import { readFileSync } from 'fs'
+import { readFileSync, readdirSync, statSync } from 'fs'
 import { resolve } from 'path'
+
+const pack = process.argv[2] || 'packages'
+const packFileName = process.argv[3] || 'package.json'
 
 const shell = (cmd) => {
   return execSync(cmd, { stdio: 'inherit' })
@@ -9,9 +12,26 @@ const log = (logs) => {
   return console.info(`[INFO]: ${logs}`)
 }
 
+const recursiveFindFile = (dir, target, exclusive = ['node_modules']) => {
+  const files = readdirSync(dir)
+  for (const file of files) {
+    if (exclusive.includes(file)) continue
+    if (statSync(resolve(dir, './', file)).isDirectory()) {
+      return recursiveFindFile(resolve(dir, './', file), target)
+    }
+    else {
+      if (file === target)
+        return resolve(dir, './', target)
+    }
+  }
+}
+
 const getVersion = () => {
-  const data = readFileSync(resolve('./package.json'), { encoding: 'utf-8' })
-  return `v${JSON.parse(data).version}`
+  const data = readFileSync(
+    recursiveFindFile(pack, packFileName)
+    , { encoding: 'utf-8' })
+  const { version } = JSON.parse(data)
+  return `v${version}`
 }
 
 const main = () => {
@@ -26,7 +46,7 @@ const main = () => {
   shell(`git commit -m 'release version ${version}'`)
 
   log('GIT TAG')
-  shell(`git tag ${version}`)
+  shell(`pnpm version ${version}`)
 
   log('GIT PUSH')
   shell('git push')
@@ -37,3 +57,4 @@ const main = () => {
 }
 
 main()
+

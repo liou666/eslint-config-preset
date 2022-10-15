@@ -17,7 +17,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "pub": "pnpm publish  -r --access public",
-    "release": "node ./scripts/release"
+    "release": "node ./scripts/release ./packages"
   },
   "dependencies": {
     "@liou666/eslint-config": "*",
