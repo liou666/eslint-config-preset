@@ -41,9 +41,11 @@ const main = () => {
 
   const version = getVersion()
 
-  log('GIT COMMIT')
+  log('GIT ADD')
   shell('git add .')
-  shell(`git commit -m 'release version ${version}'`)
+  log('GIT COMMIT')
+
+  shell(`git commit -m "release version ${version}"`)
 
   log('GIT TAG')
   shell(`pnpm version ${version}`)
