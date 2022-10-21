@@ -1,0 +1,17 @@
+{
+  "name": "@liou666/eslint-config-react",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Liou",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@liou666/eslint-config-ts": "workspace:*",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
+}
