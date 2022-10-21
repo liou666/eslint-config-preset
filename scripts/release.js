@@ -43,12 +43,12 @@ const main = () => {
 
   log('GIT ADD')
   shell('git add .')
-  log('GIT COMMIT')
 
+  log('GIT COMMIT')
   shell(`git commit -m "release version ${version}"`)
 
   log('GIT TAG')
-  shell(`pnpm version ${version}`)
+  shell(`pnpm version ${version} --allow-same-version`)
 
   log('GIT PUSH')
   shell('git push')
