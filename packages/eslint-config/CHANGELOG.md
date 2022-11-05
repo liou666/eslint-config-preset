@@ -1,5 +1,14 @@
 # @liou666/eslint-config
 
+## 1.4.1
+
+### Patch Changes
+
+- y
+
+- Updated dependencies []:
+  - @liou666/eslint-config-react@1.4.1
+
 ## 1.4.0
 
 ### Minor Changes
