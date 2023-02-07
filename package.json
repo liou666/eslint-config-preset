@@ -2,6 +2,7 @@
   "name": "@liou666/eslint-config-monorepo",
   "type": "module",
   "version": "1.4.1",
+  "private": "true",
   "description": "Liou's Eslint Config Rules",
   "author": "Liou (https://github.com/liou666)",
   "license": "MIT",
