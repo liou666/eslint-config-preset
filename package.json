@@ -24,6 +24,7 @@
     "@liou666/eslint-config": "*",
     "@liou666/eslint-config-react": "*",
     "@liou666/eslint-config-ts": "*",
+    "@liou666/eslint-config-vue": "*",
     "eslint": "^8.25.0",
     "react": "^18.2.0",
     "typescript": "^4.8.4"
