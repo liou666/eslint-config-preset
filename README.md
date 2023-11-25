@@ -1,24 +1,26 @@
 
-# ⚙️ 自定义`eslint-config`预设
+# ⚙️ Custom Eslint-Config Preset
 
->默认规则检测`md,yml,yaml,js,json`文件,如果要开启ts文件的检测需继承`@liou666/eslint-config-ts`
-## 用法
+>Default rules detect md, yml, yaml, js, json files. To enable detection for ts files, extend @liou666/eslint-config-ts.
+## Usage
 
-### 安装
+### Installation
 
 ```bash
 pnpm add -D eslint @liou666/eslint-config
 ```
 
-### 配置 `.eslintrc`
+### Configuration in .eslintrc
 ```json
 {
   "extends": "@liou666"
 }
 ```
 
-### 规则
+### Rule
 |⚙️|📦|
 |:-|:-|
 |TS|@liou666/eslint-config-ts|
 |React|@liou666/eslint-config-React **(default)**|
+|Vue|@liou666/eslint-config-vue|
+
