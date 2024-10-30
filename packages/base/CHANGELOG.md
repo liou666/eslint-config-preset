@@ -1,5 +1,11 @@
 # @liou666/eslint-config-base
 
+## 2.0.0
+
+### Major Changes
+
+- lock develop
+
 ## 1.4.1
 
 ### Patch Changes

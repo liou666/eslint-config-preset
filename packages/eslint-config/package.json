@@ -1,6 +1,6 @@
 {
   "name": "@liou666/eslint-config",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "description": "",
   "license": "ISC",
   "main": "index.js",
@@ -11,8 +11,8 @@
   "author ": "liou",
   "dependencies": {
     "@liou666/eslint-config-react": "workspace:*",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.3.0",
-    "eslint-plugin-promise": "^6.1.0"
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-n": "15.3.0",
+    "eslint-plugin-promise": "6.1.0"
   }
 }

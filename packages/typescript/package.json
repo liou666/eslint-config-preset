@@ -1,6 +1,6 @@
 {
   "name": "@liou666/eslint-config-ts",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "description": "",
   "author": "liou",
   "license": "MIT",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@liou666/eslint-config-base": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
-    "@typescript-eslint/parser": "^5.40.0"
+    "@typescript-eslint/eslint-plugin": "5.40.0",
+    "@typescript-eslint/parser": "5.40.0"
   }
 }

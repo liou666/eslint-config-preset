@@ -1,6 +1,6 @@
 {
   "name": "@liou666/eslint-config-vue",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "license": "MIT",
   "keywords": [
     "eslint-config"
@@ -15,7 +15,7 @@
   "dependencies": {
     "@liou666/eslint-config-base": "workspace:*",
     "@liou666/eslint-config-ts": "workspace:*",
-    "eslint-plugin-vue": "^9.9.0"
+    "eslint-plugin-vue": "9.9.0"
   },
   "devDependencies": {
     "eslint": "^8.34.0"
