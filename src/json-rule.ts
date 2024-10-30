@@ -10,7 +10,7 @@ export default [
     },
   },
   {
-    files: ['*.json', '*.json5'],
+    files: ['**/*.json', '**/*.json5'],
     languageOptions: {
       parser: jsoncParser,
     },
@@ -52,7 +52,7 @@ export default [
       'jsonc/object-property-newline': ['error', { allowMultiplePropertiesPerLine: true }],
       'jsonc/quote-props': 'error',
       'jsonc/quotes': 'error',
- 
+
     },
   },
   {

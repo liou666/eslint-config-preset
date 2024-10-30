@@ -8,7 +8,8 @@ interface LiouConfig {
     react?: boolean;
     json?: boolean;
     markdown?: boolean;
+    yml?: boolean;
 }
-declare function export_default(liou_config?: LiouConfig, ...rest: Linter.Config[]): Promise<Linter.Config<Linter.RulesRecord>[]>;
+declare function export_default(liou_config: LiouConfig, ...rest: Linter.Config[]): Promise<Linter.Config<Linter.RulesRecord>[]>;
 
 export { export_default as default };

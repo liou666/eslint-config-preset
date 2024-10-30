@@ -10,22 +10,25 @@
     "eslint-config"
   ],
   "main": "index.js",
+  "types": "module",
   "engines": {
     "node": ">=14.6",
     "pnpm": ">=7.0.0"
   },
   "scripts": {
-    "lint": "eslint examples/",
+    "lint": "eslint examples/ ",
     "lint:fix": "eslint . --fix",
     "pub": "pnpm publish  -r --access public",
     "release": "node ./scripts/release ./packages",
     "build": "tsup"
   },
   "dependencies": {
+    "@antfu/eslint-config": "^3.8.0",
     "@eslint/compat": "^1.2.2",
+    "@eslint/js": "^9.13.0",
     "@eslint/markdown": "^6.2.1",
-    "@typescript-eslint/eslint-plugin": "^8.12.2",
-    "@typescript-eslint/parser": "^8.12.2",
+    "@stylistic/eslint-plugin": "^2.9.0",
+    "@stylistic/eslint-plugin-js": "^2.9.0",
     "eslint": "^9.13.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-html": "^8.1.2",
@@ -37,9 +40,10 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-unicorn": "^56.0.0",
+    "eslint-plugin-yml": "^1.14.0",
     "globals": "^15.11.0",
     "jsonc-eslint-parser": "^2.4.0",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "typescript": "^4.8.4",
     "typescript-eslint": "^8.12.2"
   },
@@ -47,6 +51,8 @@
     "@changesets/changelog-github": "^0.4.7",
     "@changesets/cli": "^2.25.0",
     "@types/eslint": "^9.6.1",
+    "@typescript-eslint/eslint-plugin": "^8.12.2",
+    "@typescript-eslint/parser": "^8.12.2",
     "tsup": "^8.3.5"
   }
 }

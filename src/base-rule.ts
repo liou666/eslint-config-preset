@@ -1,24 +1,31 @@
 import type { Linter } from 'eslint'
-import importPlugin from 'eslint-plugin-import'
 import js from '@eslint/js'
-import eslintPluginJsonc from 'eslint-plugin-jsonc'
-import { jsoncParser } from 'jsonc-eslint-parser'
+import stylistic from '@stylistic/eslint-plugin'
+import stylisticPluginJs from '@stylistic/eslint-plugin-js'
+import importPlugin from 'eslint-plugin-import'
 import nodePlugin from 'eslint-plugin-n'
+import pluginPerfectionist from 'eslint-plugin-perfectionist'
 import pluginPromise from 'eslint-plugin-promise'
-import { fixupPluginRules } from '@eslint/compat'
+
+const nodeRecommended = nodePlugin.configs['flat/mixed-esm-and-cjs']
+nodeRecommended.forEach(config => delete config.languageOptions?.sourceType)
 
 export default [
   js.configs.recommended,
   importPlugin.flatConfigs.recommended,
-  ...eslintPluginJsonc.configs['flat/recommended-with-jsonc'],
   pluginPromise.configs['flat/recommended'],
   nodePlugin.configs['flat/recommended-script'],
+  stylistic.configs.customize({
+    indent: 2,
+    quotes: 'single',
+    semi: false,
+    jsx: true,
+  }),
   {
-    settings: {
-      'import/resolver': {
-        node: { extensions: ['.js', '.mjs'] },
-      },
+    plugins: {
+      stylistic: stylisticPluginJs,
     },
+    // files: ['**/*mjs', '**/*js', '**/*cjs', '**/*jsx', '**/*tsx', '**/*.ts'],
     rules: {
       // import
       'import/order': 'error',
@@ -26,13 +33,19 @@ export default [
       'import/no-mutable-exports': 'error',
       'import/no-unresolved': 'off',
       'import/no-absolute-path': 'off',
-  
+
+      'space-infix-ops': ['error'],
+      'space-before-blocks': ['error'],
+      'keyword-spacing': ['error'],
+      // 'space-before-function-paren': ['error'],
+      'space-in-parens': ['error', 'never'],
+
       // Common
-      'semi': ['error', 'never'],
+      // 'semi': ['error', 'never'],
       'curly': ['error', 'multi-or-nest', 'consistent'],
-      'quotes': ['error', 'single'],
+      // 'quotes': ['error', 'single'],
       'quote-props': ['error', 'consistent-as-needed'],
-      'no-unused-vars': 'warn',
+      'no-unused-vars': 'error',
       'no-param-reassign': 'off',
       'array-bracket-spacing': ['error', 'never'],
       'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
@@ -47,7 +60,7 @@ export default [
       'no-cond-assign': ['error', 'always'],
       'func-call-spacing': ['off', 'never'],
       'key-spacing': ['error', { beforeColon: false, afterColon: true }],
-      'indent': ['error', 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
+      // 'indent': ['error', 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
       'no-restricted-syntax': [
         'error',
         'DebuggerStatement',
@@ -65,7 +78,7 @@ export default [
         },
       ],
       'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 1 }],
-  
+
       // es6
       'no-var': 'error',
       'prefer-const': [
@@ -108,7 +121,7 @@ export default [
           balanced: true,
         },
       }],
-  
+
       // best-practice
       'array-callback-return': 'error',
       'block-scoped-var': 'error',
@@ -132,7 +145,8 @@ export default [
       'import/no-named-as-default': 'off',
       'import/namespace': 'off',
       'n/no-callback-literal': 'off',
-  
+      'n/no-unpublished-import': 'off',
+      'n/no-extraneous-import': 'off',
       'sort-imports': [
         'error',
         {
@@ -143,25 +157,35 @@ export default [
           allowSeparatedGroups: false,
         },
       ],
-    },
-  },
- 
-  {
-    files: ['*.d.ts'],
-    rules: {
-      'import/no-duplicates': 'off',
+      'stylistic/linebreak-style': ['error', 'unix'],
     },
   },
   {
-    files: ['*.js'],
-    rules: {
-      '@typescript-eslint/no-var-requires': 'off',
+    name: 'liou/perfectionist/setup',
+    plugins: {
+      perfectionist: pluginPerfectionist,
     },
-  },
-  {
-    files: ['scripts/**/*.*', 'cli.*'],
     rules: {
-      'no-console': 'off',
+      'perfectionist/sort-exports': ['error', { order: 'asc', type: 'natural' }],
+      'perfectionist/sort-imports': ['error', {
+        groups: [
+          'type',
+          ['parent-type', 'sibling-type', 'index-type'],
+
+          'builtin',
+          'external',
+          ['internal', 'internal-type'],
+          ['parent', 'sibling', 'index'],
+          'side-effect',
+          'object',
+          'unknown',
+        ],
+        newlinesBetween: 'ignore',
+        order: 'asc',
+        type: 'natural',
+      }],
+      'perfectionist/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
+      'perfectionist/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
     },
   },
   {
@@ -170,5 +194,5 @@ export default [
       'no-unused-expressions': 'off',
     },
   },
- 
-]as Linter.Config[]
+
+] as Linter.Config[]

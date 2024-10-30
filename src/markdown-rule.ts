@@ -1,20 +1,17 @@
-import markdown from '@eslint/markdown'
 import type { Linter } from 'eslint'
+import markdown from '@eslint/markdown'
 export default [
   {
-    name: 'liou/markdown/setup',
-    plugins: {
+    plugin: {
       markdown,
     },
-  },
-  {
-    files: ['**/*.md/*.*'],
+    files: ['**/*.md'],
     languageOptions: {
       parser: {
         meta: {
           name: 'parser-plain',
         },
-        parseForESLint: (code: string) => ({
+        parseForESLint: code => ({
           ast: {
             body: [],
             comments: [],
@@ -47,4 +44,4 @@ export default [
       'no-unused-vars': 'off',
     },
   },
-] as Linter.Config[]
+] as unknown as Linter.Config[]

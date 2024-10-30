@@ -1,16 +1,13 @@
+import type { Linter } from 'eslint'
+import react from 'eslint-plugin-react'
+import ReactHooks from 'eslint-plugin-react-hooks'
+import globals from 'globals'
 
-import { Linter } from "eslint";
-import react from "eslint-plugin-react";
-import globals from "globals";
 export default [{
-  // extends: [
-  //   '@liou666/eslint-config-ts',
-  //   'plugin:react/recommended',
-  //   'plugin:react-hooks/recommended',
-  // ],
   files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
   plugins: {
     react,
+    'react-hooks': ReactHooks,
   },
   languageOptions: {
     parserOptions: {
@@ -43,7 +40,7 @@ export default [{
     'react/sort-comp': 'error',
 
     // code style
-    'jsx-quotes': ['error', 'prefer-single'],
+    // 'jsx-quotes': ['error', 'prefer-single'],
     'react/jsx-indent-props': [2, 2],
     'react/jsx-indent': [2, 2, { indentLogicalExpressions: true }],
     'react/jsx-first-prop-new-line': 'error',
@@ -77,9 +74,9 @@ export default [{
     'react/jsx-max-props-per-line': ['error', { maximum: 2 }],
     'react/void-dom-elements-no-children': 'error',
 
-    // 'react-hooks/rules-of-hooks': 'error',
-    // 'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
 
   },
-}
-] as Linter.Config[];
+},
+] as Linter.Config[]

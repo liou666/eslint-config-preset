@@ -1,11 +1,11 @@
 {
-  "name": "@liou666/eslint-config",
   "type": "module",
   "version": "1.4.1",
-  "private": "true",
   "description": "Liou's Eslint Config Rules",
   "author": "Liou (https://github.com/liou666)",
-  "license": "MIT",
+  "private": "true",
+  "name": "@liou666/eslint-config",
+
   "keywords": [
     "eslint-config"
   ],
@@ -21,6 +21,8 @@
     "release": "node ./scripts/release ./packages",
     "build": "tsup"
   },
+  "license": "MIT",
+
   "dependencies": {
     "@eslint/compat": "^1.2.2",
     "@typescript-eslint/eslint-plugin": "^8.12.2",
