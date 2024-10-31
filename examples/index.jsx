@@ -6,6 +6,6 @@ export default function A() {
       console.log('a')
   }, [])
   return (
-    <div className="sss">a</div>
+    <div className='sss'>a</div>
   )
 }

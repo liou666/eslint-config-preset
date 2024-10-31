@@ -1,8 +1,7 @@
 {
   "type": "module",
   "version": "1.4.1",
-  "description": "Liou's Eslint Config Rules",
-  "author": "Liou (https://github.com/liou666)",
+   "description": "Liou's Eslint Config Rules",
   "private": "true",
   "name": "@liou666/eslint-config",
 
@@ -14,6 +13,7 @@
     "node": ">=14.6",
     "pnpm": ">=7.0.0"
   },
+  "author": "Liou (https://github.com/liou666)",
   "scripts": {
     "lint": "eslint examples/",
     "lint:fix": "eslint . --fix",
