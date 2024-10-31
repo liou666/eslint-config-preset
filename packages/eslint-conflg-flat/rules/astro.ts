@@ -1,29 +1,9 @@
 import type { Linter } from 'eslint'
-import tsParser from '@typescript-eslint/parser'
-import astroParser from 'astro-eslint-parser'
 import astroPlugin from 'eslint-plugin-astro'
 
 const astroPreset: Linter.Config[] = [
+  ...astroPlugin.configs['flat/recommended'],
   {
-    name: 'liou/astro/setup',
-    plugins: {
-      astro: astroPlugin,
-    },
-  },
-  {
-    files: ['**/*.astro'],
-    languageOptions: {
-      globals: astroPlugin.environments.astro.globals,
-      parser: astroParser,
-      parserOptions: {
-        extraFileExtensions: ['.astro'],
-        parser: tsParser,
-      },
-      sourceType: 'module',
-
-    },
-    processor: 'astro/client-side-ts',
-    name: 'liou/astro/rules',
     rules: {
       'astro/missing-client-only-directive-value': 'error',
       'astro/no-conflict-set-directives': 'error',

@@ -40,7 +40,7 @@ const reactPreset: Linter.Config[] = [{
     'react/sort-comp': 'error',
 
     // code style
-    // 'jsx-quotes': ['error', 'prefer-single'],
+    'jsx-quotes': ['error', 'prefer-double'],
     'react/jsx-indent-props': [2, 2],
     'react/jsx-indent': [2, 2, { indentLogicalExpressions: true }],
     'react/jsx-first-prop-new-line': 'error',

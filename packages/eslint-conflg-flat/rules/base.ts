@@ -20,7 +20,7 @@ const basePreset: Linter.Config[] = [
     indent: 2,
     quotes: 'single',
     semi: false,
-    jsx: true,
+    jsx: false,
   }),
 
   {

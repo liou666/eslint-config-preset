@@ -61,7 +61,7 @@ interface CustomConfig {
 
   /**
    * Enable Astro rules for `.astro` files
-   * @default true
+   * @default false
    */
   astro?: boolean
 }
@@ -88,7 +88,7 @@ const DEFAULT_CONFIG: CustomConfig = {
   markdown: true,
   json: true,
   yml: true,
-  astro: true,
+  astro: false,
   ignores: [],
   plugins: [],
   rules: {},

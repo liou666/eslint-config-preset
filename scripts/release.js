@@ -55,7 +55,8 @@ const main = () => {
   shell(`git push origin ${version}`)
 
   log('PUBLISH')
-  shell('pnpm publish  -r --access public')
+  // shell('pnpm publish -r --access public')
+  shell('pnpm publish --filter @liou666/eslint-config-flat --access public')
 }
 
 main()
