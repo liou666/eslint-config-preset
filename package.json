@@ -10,27 +10,33 @@
     "eslint-config"
   ],
   "main": "index.js",
+  "types": "module",
   "engines": {
     "node": ">=14.6",
     "pnpm": ">=7.0.0"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint examples/ ",
     "lint:fix": "eslint . --fix",
     "pub": "pnpm publish  -r --access public",
-    "release": "node ./scripts/release ./packages"
+    "release": "node ./scripts/release ./packages",
+    "build:flat": "pnpm --filter @liou666/eslint-config-flat build",
+    "pub:flat": "pnpm publish --filter @liou666/eslint-config-flat --access public"
   },
   "dependencies": {
     "@liou666/eslint-config": "*",
     "@liou666/eslint-config-react": "*",
     "@liou666/eslint-config-ts": "*",
     "@liou666/eslint-config-vue": "*",
-    "eslint": "8.25.0",
-    "react": "^18.2.0",
-    "typescript": "^4.8.4"
+    "@liou666/eslint-config-flat": "*",
+    "electron": "^33.0.2",
+    "react": "^18.3.1",
+    "typescript": "^4.8.4",
+    "typescript-eslint": "^8.12.2"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.7",
-    "@changesets/cli": "^2.25.0"
+    "@changesets/cli": "^2.25.0",
+    "eslint": "^9.13.0"
   }
 }
