@@ -1,7 +1,7 @@
 import type { Linter } from 'eslint'
 import eslintPluginYml from 'eslint-plugin-yml'
 
-export default [
+const YmlPreset: Linter.Config[] = [
   ...eslintPluginYml.configs['flat/standard'],
   {
     files: ['**/*.yml', '**/*.yaml'],
@@ -9,4 +9,5 @@ export default [
       'yml/spaced-comment': 'off',
     },
   },
-] as Linter.Config[]
+]
+export default YmlPreset

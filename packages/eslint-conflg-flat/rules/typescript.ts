@@ -1,6 +1,7 @@
 import type { Linter } from 'eslint'
 import tseslint from 'typescript-eslint'
-export default [
+
+const typeScriptPreset = [
   // ts
   ...tseslint.configs.recommended,
   {
@@ -17,10 +18,9 @@ export default [
       '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports', disallowTypeAnnotations: false }],
       '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
       '@typescript-eslint/prefer-ts-expect-error': 'error',
+      '@typescript-eslint/no-explicit-any': 'warn',
 
       // Override JS
-      // 'indent': 'off',
-
       'space-infix-ops': 'off',
       'keyword-spacing': 'off',
       'comma-spacing': 'off',
@@ -34,6 +34,7 @@ export default [
       '@typescript-eslint/no-empty-function': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
       '@typescript-eslint/no-namespace': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
   {
@@ -43,3 +44,5 @@ export default [
     },
   },
 ] as Linter.Config[]
+
+export default typeScriptPreset

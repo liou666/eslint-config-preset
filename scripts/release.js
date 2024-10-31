@@ -1,5 +1,5 @@
 import { execSync } from 'child_process'
-import { readFileSync, readdirSync, statSync } from 'fs'
+import { readdirSync, readFileSync, statSync } from 'fs'
 import { resolve } from 'path'
 
 const pack = process.argv[2] || 'packages'
@@ -59,4 +59,3 @@ const main = () => {
 }
 
 main()
-

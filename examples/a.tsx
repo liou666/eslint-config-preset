@@ -13,6 +13,12 @@ function d(a: number) {
 
 export default function a({ name }: Props) {
   return (
-    <div>a</div>
+    <button disabled>
+      {
+        [1, 2].map((x) => {
+          return <div />
+        })
+      }
+    </button>
   )
 }

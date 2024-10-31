@@ -6,11 +6,12 @@ import importPlugin from 'eslint-plugin-import'
 import nodePlugin from 'eslint-plugin-n'
 import pluginPerfectionist from 'eslint-plugin-perfectionist'
 import pluginPromise from 'eslint-plugin-promise'
+import globals from 'globals'
 
 const nodeRecommended = nodePlugin.configs['flat/mixed-esm-and-cjs']
 nodeRecommended.forEach(config => delete config.languageOptions?.sourceType)
 
-export default [
+const basePreset: Linter.Config[] = [
   js.configs.recommended,
   importPlugin.flatConfigs.recommended,
   pluginPromise.configs['flat/recommended'],
@@ -21,6 +22,32 @@ export default [
     semi: false,
     jsx: true,
   }),
+
+  {
+    languageOptions: {
+      ecmaVersion: 2022,
+      globals: {
+        ...globals.browser,
+        ...globals.es2021,
+        ...globals.node,
+        document: 'readonly',
+        navigator: 'readonly',
+        window: 'readonly',
+      },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion: 2022,
+        sourceType: 'module',
+      },
+      sourceType: 'module',
+    },
+    linterOptions: {
+      reportUnusedDisableDirectives: true,
+    },
+  },
+
   {
     plugins: {
       stylistic: stylisticPluginJs,
@@ -28,11 +55,14 @@ export default [
     // files: ['**/*mjs', '**/*js', '**/*cjs', '**/*jsx', '**/*tsx', '**/*.ts'],
     rules: {
       // import
-      'import/order': 'error',
       'import/first': 'error',
       'import/no-mutable-exports': 'error',
       'import/no-unresolved': 'off',
       'import/no-absolute-path': 'off',
+      'import/order': 'off',
+      'import/no-named-as-default-member': 'off',
+      'import/no-named-as-default': 'off',
+      'import/namespace': 'off',
 
       'space-infix-ops': ['error'],
       'space-before-blocks': ['error'],
@@ -121,6 +151,7 @@ export default [
           balanced: true,
         },
       }],
+      'promise/always-return': 'off',
 
       // best-practice
       'array-callback-return': 'error',
@@ -141,22 +172,14 @@ export default [
       'operator-linebreak': ['error', 'before'],
       'no-use-before-define': ['error', { functions: false, classes: false, variables: true }],
       'eslint-comments/disable-enable-pair': 'off',
-      'import/no-named-as-default-member': 'off',
-      'import/no-named-as-default': 'off',
-      'import/namespace': 'off',
+
       'n/no-callback-literal': 'off',
       'n/no-unpublished-import': 'off',
       'n/no-extraneous-import': 'off',
-      'sort-imports': [
-        'error',
-        {
-          ignoreCase: false,
-          ignoreDeclarationSort: true,
-          ignoreMemberSort: false,
-          memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-          allowSeparatedGroups: false,
-        },
-      ],
+      'n/no-missing-import': 'off',
+      'n/no-process-exit': 'off',
+      'n/no-unpublished-require': 'off',
+      'sort-imports': 'off',
       'stylistic/linebreak-style': ['error', 'unix'],
     },
   },
@@ -195,4 +218,6 @@ export default [
     },
   },
 
-] as Linter.Config[]
+]
+
+export default basePreset

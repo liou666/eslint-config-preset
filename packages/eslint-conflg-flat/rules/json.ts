@@ -1,12 +1,12 @@
-import type { Linter } from 'eslint'
+import type { ESLint, Linter } from 'eslint'
 import eslintPluginJsonc from 'eslint-plugin-jsonc'
 import jsoncParser from 'jsonc-eslint-parser'
 
-export default [
+const jsonPreset: Linter.Config[] = [
   {
     name: 'liou/jsonc/setup',
     plugins: {
-      jsonc: eslintPluginJsonc,
+      jsonc: eslintPluginJsonc as unknown as ESLint.Plugin,
     },
   },
   {
@@ -126,4 +126,5 @@ export default [
       ],
     },
   },
-] as Linter.Config[]
+]
+export default jsonPreset

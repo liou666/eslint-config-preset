@@ -3,7 +3,7 @@ import react from 'eslint-plugin-react'
 import ReactHooks from 'eslint-plugin-react-hooks'
 import globals from 'globals'
 
-export default [{
+const reactPreset: Linter.Config[] = [{
   files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
   plugins: {
     react,
@@ -79,4 +79,5 @@ export default [{
 
   },
 },
-] as Linter.Config[]
+]
+export default reactPreset

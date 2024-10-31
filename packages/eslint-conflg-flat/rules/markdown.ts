@@ -1,11 +1,12 @@
 import type { Linter } from 'eslint'
 import markdown from '@eslint/markdown'
-export default [
+
+const markDownPreset: Linter.Config[] = [
   {
-    plugin: {
+    plugins: {
       markdown,
     },
-    files: ['**/*.md'],
+    files: ['**/*.md', '**/*.mdx'],
     languageOptions: {
       parser: {
         meta: {
@@ -44,4 +45,5 @@ export default [
       'no-unused-vars': 'off',
     },
   },
-] as unknown as Linter.Config[]
+]
+export default markDownPreset
