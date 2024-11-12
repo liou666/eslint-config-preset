@@ -6,7 +6,10 @@ const YmlPreset: Linter.Config[] = [
   {
     files: ['**/*.yml', '**/*.yaml'],
     rules: {
-      'yml/spaced-comment': 'off',
+      'yml/spaced-comment': 'error',
+      // TODO: Add spaced-comment rule to eslint-plugin-yml
+      '@stylistic/spaced-comment': 'off',
+      '@stylistic/no-multi-spaces': 'off',
     },
   },
 ]

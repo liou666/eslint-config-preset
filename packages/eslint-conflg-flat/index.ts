@@ -1,6 +1,7 @@
+import type { StylisticCustomizeOptions } from '@stylistic/eslint-plugin'
 import type { ESLint, Linter } from 'eslint'
 import astroRules from './rules/astro'
-import baseRules from './rules/base'
+import basePresetCreator from './rules/base'
 import jsonRules from './rules/json'
 import markdownRules from './rules/markdown'
 import reactRules from './rules/react'
@@ -19,6 +20,18 @@ interface CustomConfig {
    * ]
    */
   ignores?: string[]
+
+  /**
+   * Custom style options
+   * @default
+   * {
+   *  indent: 2,
+   *  quotes: 'single',
+   *  semi: false,
+   *  jsx: false,
+   * }
+   */
+  style?: StylisticCustomizeOptions
 
   /**
    * Custom plugins, will merge with existing rules
@@ -99,9 +112,10 @@ const DEFAULT_CONFIG: CustomConfig = {
  * @param userConfig - Custom configuration
  * @param additionalConfigs - Additional configurations
  */
-export default function createConfig(userConfig: CustomConfig, ...additionalConfigs: Linter.Config[]) {
+export default function createConfig(userConfig: CustomConfig = {}, ...additionalConfigs: Linter.Config[]) {
   const config = { ...DEFAULT_CONFIG, ...userConfig }
   const eslintConfig: Linter.Config[] = []
+  const baseRules = basePresetCreator(userConfig.style || {})
 
   // Add ignores
   eslintConfig.push({
