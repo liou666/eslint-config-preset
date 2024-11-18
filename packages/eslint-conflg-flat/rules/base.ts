@@ -172,7 +172,7 @@ const basePresetCreator = (styleOptions: StylisticCustomizeOptions): Linter.Conf
         'require-await': 'off',
         'no-return-assign': 'off',
         'operator-linebreak': ['error', 'before'],
-        'no-use-before-define': ['error', { functions: false, classes: false, variables: true }],
+        'no-use-before-define': 'off',
         'eslint-comments/disable-enable-pair': 'off',
 
         'n/no-callback-literal': 'off',
@@ -198,6 +198,7 @@ const basePresetCreator = (styleOptions: StylisticCustomizeOptions): Linter.Conf
         'perfectionist/sort-exports': ['error', { order: 'asc', type: 'natural' }],
         'perfectionist/sort-imports': ['error', {
           groups: [
+            'reflect-metadata',
             'type',
             ['parent-type', 'sibling-type', 'index-type'],
 
@@ -212,6 +213,11 @@ const basePresetCreator = (styleOptions: StylisticCustomizeOptions): Linter.Conf
           newlinesBetween: 'ignore',
           order: 'asc',
           type: 'natural',
+          customGroups: {
+            value: {
+              'reflect-metadata': 'reflect-metadata',
+            },
+          },
         }],
         'perfectionist/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
         'perfectionist/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
