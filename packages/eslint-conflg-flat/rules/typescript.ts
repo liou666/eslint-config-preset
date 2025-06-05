@@ -20,6 +20,19 @@ const typeScriptPreset = [
       '@typescript-eslint/prefer-ts-expect-error': 'error',
       '@typescript-eslint/no-explicit-any': 'warn',
 
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          args: 'all',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
+
       // Override JS
       'space-infix-ops': 'off',
       'keyword-spacing': 'off',

@@ -41,8 +41,8 @@ const reactPreset: Linter.Config[] = [{
 
     // code style
     'jsx-quotes': ['error', 'prefer-double'],
-    'react/jsx-indent-props': [2, 2],
-    'react/jsx-indent': [2, 2, { indentLogicalExpressions: true }],
+    'react/jsx-indent-props': ['off'],
+    'react/jsx-indent': ['off'],
     'react/jsx-first-prop-new-line': 'error',
     'react/jsx-newline': ['error', { prevent: true }],
     'react/jsx-closing-tag-location': 'error',

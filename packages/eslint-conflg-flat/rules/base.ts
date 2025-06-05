@@ -181,10 +181,7 @@ const basePresetCreator = (styleOptions: StylisticCustomizeOptions): Linter.Conf
         'n/no-missing-import': 'off',
         'n/no-process-exit': 'off',
         'n/no-unpublished-require': 'off',
-        'n/no-unsupported-features/node-builtins': ['error', {
-          // version: '>=18.0.0',
-          // ignores: [],
-        }],
+        'n/no-unsupported-features/node-builtins': ['off'],
         'sort-imports': 'off',
         'promise/param-names': 'off',
       },
